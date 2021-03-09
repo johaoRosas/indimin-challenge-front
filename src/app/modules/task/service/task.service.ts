@@ -22,7 +22,7 @@ export class TaskService {
 
   
   getTasksByCityzen(id : number): Observable<Task[]> {
-    return this.http.get<Task[]>(environment.service.task +'?id='+id )
+    return this.http.get<Task[]>(environment.service.task  +'/detail?id='+id )
       .pipe(
         tap(hits => console.log('fetched Task')),
         catchError(this.handleError('Task', []))

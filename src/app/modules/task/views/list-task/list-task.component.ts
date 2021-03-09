@@ -53,6 +53,7 @@ export class ListTaskComponent implements OnInit {
 
     this.id = this.route.snapshot.paramMap.get('id') || ''  ;
     if (this.id) {
+      this.tasks = [];
       this.task.citizenId  = parseInt(this.id );
       this.getCityzenById(parseInt(this.id ));
       this.getTasksByCityzen(parseInt(this.id));

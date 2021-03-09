@@ -3,6 +3,6 @@ export interface Cityzen{
     firstName: string,
     lastName: string,
     email: string, 
-    status : boolean
+    status : boolean,
 }
 
