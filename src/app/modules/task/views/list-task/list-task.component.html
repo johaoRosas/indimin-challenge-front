@@ -1,0 +1,42 @@
+<div class="contenedor">
+
+    <mat-toolbar color="primary" class="title">
+		<mat-toolbar-row >
+      <a [href]="'/cityzen/list'"  >
+        <mat-icon [ngStyle]="{'color':'white','padding-top':'10px','padding-right': '20px'}">arrow_back</mat-icon>
+      </a>
+		  <span style="font-size: 14px;" >Crear  Nuevo tarea al Ciudano : {{cityzen.firstName + ' ' + cityzen.lastName}} </span>
+ 
+		</mat-toolbar-row> 
+	  </mat-toolbar >
+    <br> 
+      <mat-form-field>
+        <input matInput  type="text" [(ngModel)]="task.description"    placeholder="Tarea">
+         
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-select [(ngModel)]="task.day" name="day ">
+          <mat-option *ngFor="let day of days" [value]="day.value">
+            {{day.description}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> 
+     
+       
+      <button mat-raised-button color="primary" (click)="process()">Crear</button>
+ 
+  </div>
+  <div class="contenedor">
+    <span class="title-agency" >Lista de Tareas </span>
+  <mat-list>
+	  <mat-list-item *ngFor="let task of tasks; index as i">
+			 
+			<h3 matLine class="title-agency" > {{i+1}} </h3>
+			<h3 matLine-end  > {{task.description }} </h3>
+		  
+ 
+		
+	  </mat-list-item>
+  </mat-list>
+</div>

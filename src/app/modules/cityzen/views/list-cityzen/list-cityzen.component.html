@@ -1,0 +1,48 @@
+<app-loader *ngIf="isLoadingResults">
+	</app-loader>
+
+
+<ng-container  *ngIf="!isLoadingResults">
+
+	<mat-toolbar color="primary">
+		<mat-toolbar-row>
+		  <span>Ciudadanos</span>
+		  <span class="example-spacer"></span>
+		   
+			<form class="example-form">	
+			  <mat-form-field class="example-full-width">
+				  <input (keyup)="applyFilter()"  [(ngModel)]="cityzen"  [ngModelOptions]="{standalone:true}" matInput  placeholder="Buscar Ciudadanos">
+				</mat-form-field>
+				<mat-icon class="v-align-middle">search</mat-icon>
+			</form>
+		  
+		</mat-toolbar-row> 
+	  </mat-toolbar>
+  
+  
+  <mat-list>
+	  <mat-list-item *ngFor="let cityzen of cityzens; index as i">
+			
+			<img matListAvatar  (click)="goToupdate(cityzen)"  src="https://source.unsplash.com/random/200x200?sig=+{{cityzen.id}}" alt="Photo of a Shiba Inu">
+			<h3 matLine class="title-agency" (click)="goToupdate(cityzen)"> {{cityzen.firstName }} </h3>
+		  
+			<p matLine (click)="goToupdate(cityzen)">
+				<span> {{cityzen.lastName}} </span>
+			</p>
+		
+			<p matLine-end (click)="goToTask(cityzen)">
+				<mat-icon>note_add</mat-icon>
+			</p>
+			<p matLine-end>
+			  <mat-icon (click)="delete(cityzen.id)">delete_outline</mat-icon>
+		  </p>
+	 
+		
+		
+	  </mat-list-item>
+  </mat-list>
+</ng-container>
+
+
+<app-button-float (emmit)="openCreate()" >
+</app-button-float>

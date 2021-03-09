@@ -1,0 +1,28 @@
+<div class="contenedor">
+
+    <mat-toolbar color="primary" class="title">
+		<mat-toolbar-row >
+      <a [href]="'/cityzen/list'"  >
+        <mat-icon [ngStyle]="{'color':'white','padding-top':'10px','padding-right': '20px'}">arrow_back</mat-icon>
+      </a>
+		  <span >Crear  Nuevo Ciudadano</span>
+ 
+		</mat-toolbar-row> 
+	  </mat-toolbar >
+    <br> 
+      <mat-form-field>
+        <input matInput  type="text" [(ngModel)]="cityzen.firstName"    placeholder="Primer Nombre">
+         
+      </mat-form-field>
+    
+      <mat-form-field>
+          <input matInput type="text" [(ngModel)]="cityzen.lastName"   placeholder="Apellidos">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput type="text" [(ngModel)]="cityzen.email"   placeholder="Email">
+      </mat-form-field>
+     
+       
+      <button mat-raised-button color="primary" (click)="process()">Crear</button>
+ 
+  </div>
